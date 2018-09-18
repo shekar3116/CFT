@@ -356,9 +356,8 @@
         "Fn::Join" : [ "", [
             "#!/bin/bash\n",
 			"sudo yum install -y httpd\n",
-			"sudo service enable httpd\n",
-			"sudo service start httpd\n",
-		        "sudo service status httpd\n",
+			"sudo systemctl enable httpd\n",
+			"sudo systemctl start httpd\n",
 		         "sudo setenforce 0\n"
 			] ]
     }
