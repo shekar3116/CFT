@@ -290,11 +290,11 @@
 
     "AWSRegionArch2AMI" : {
 
-      "us-east-1"        : {"PV64" : "ami-2a69aa47", "HVM64" : "ami-6871a115", "HVMG2" : "ami-0a6e3770"},
+      "us-east-1"        : {"PV64" : "ami-2a69aa47", "HVM64" : "ami-97785bed", "HVMG2" : "ami-0a6e3770"},
 
       "us-west-2"        : {"PV64" : "ami-7f77b31f", "HVM64" : "ami-28e07e50", "HVMG2" : "ami-ee15a196"},
 
-      "us-west-1"        : {"PV64" : "ami-a2490dc2", "HVM64" : "ami-824c4ee2", "HVMG2" : "ami-0da4a46d"},
+      "us-west-1"        : {"PV64" : "ami-a2490dc2", "HVM64" : "ami-18726478", "HVMG2" : "ami-0da4a46d"},
 
       "eu-west-1"        : {"PV64" : "ami-4cdd453f", "HVM64" : "ami-d834aba1", "HVMG2" : "ami-af8013d6"},
 
@@ -355,10 +355,11 @@
     "Fn::Base64" : {
         "Fn::Join" : [ " ", [
             "#!/bin/bash\n",
-			"sudo yum install -y httpd\n",
-			"sudo systemctl enable httpd\n",
-			"sudo systemctl start httpd\n",
-			"setenforce 0"
+			"yum install -y httpd\n",
+			"systemctl enable httpd\n",
+			"systemctl start httpd\n",
+			"setenforce 0\n",
+			"echo Welcome to AWS-CFT-Krishna >> /var/www/html/index.html"
 			] ]
     }
 }
@@ -377,7 +378,8 @@
 
         "GroupDescription" : "Enable SSH access via port 22",
 
-        "SecurityGroupIngress" : [ {
+        "SecurityGroupIngress" : [ 
+		{
 
           "IpProtocol" : "tcp",
 
@@ -385,8 +387,10 @@
 
           "ToPort" : "65535",
 
-          "CidrIp" : { "Ref" : "SSHLocation"}}]
-		       
+          "CidrIp" : { "Ref" : "SSHLocation"}
+
+        } ]
+
       }
 
     }
