@@ -28,7 +28,7 @@
 
       "Type" : "String",
 
-      "Default" : "t2.small",
+      "Default" : "t2.micro",
 
       "AllowedValues" : [ "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "g2.2xlarge", "g2.8xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "hi1.4xlarge", "hs1.8xlarge", "cr1.8xlarge", "cc2.8xlarge", "cg1.4xlarge"]
 
@@ -290,11 +290,11 @@
 
     "AWSRegionArch2AMI" : {
 
-      "us-east-1"        : {"PV64" : "ami-2a69aa47", "HVM64" : "ami-6871a115", "HVMG2" : "ami-0a6e3770"},
+      "us-east-1"        : {"PV64" : "ami-2a69aa47", "HVM64" : "ami-97785bed", "HVMG2" : "ami-0a6e3770"},
 
       "us-west-2"        : {"PV64" : "ami-7f77b31f", "HVM64" : "ami-28e07e50", "HVMG2" : "ami-ee15a196"},
 
-      "us-west-1"        : {"PV64" : "ami-a2490dc2", "HVM64" : "ami-824c4ee2", "HVMG2" : "ami-0da4a46d"},
+      "us-west-1"        : {"PV64" : "ami-a2490dc2", "HVM64" : "ami-18726478", "HVMG2" : "ami-0da4a46d"},
 
       "eu-west-1"        : {"PV64" : "ami-4cdd453f", "HVM64" : "ami-d834aba1", "HVMG2" : "ami-af8013d6"},
 
@@ -355,10 +355,11 @@
     "Fn::Base64" : {
         "Fn::Join" : [ " ", [
             "#!/bin/bash\n",
-			"sudo yum install -y httpd\n",
-			"sudo systemctl enable httpd\n",
-			"sudo systemctl start httpd\n",
-			"setenforce 0"
+			"yum install -y httpd\n",
+			"systemctl enable httpd\n",
+			"systemctl start httpd\n",
+			"setenforce 0\n",
+			"echo Welcome to rajashekar >> /var/www/html/index.html"
 			] ]
     }
 }
@@ -377,28 +378,18 @@
 
         "GroupDescription" : "Enable SSH access via port 22",
 
-        "SecurityGroupIngress" : [ {
+        "SecurityGroupIngress" : [ 
+		{
 
           "IpProtocol" : "tcp",
 
-          "FromPort" : "22",
+          "FromPort" : "0",
 
-          "ToPort" : "22",
-
-          "CidrIp" : { "Ref" : "SSHLocation"}}],
-		  
-
-        "SecurityGroupIngress" : [ {
-
-          "IpProtocol" : "tcp",
-
-          "FromPort" : "80",
-
-          "ToPort" : "80",
+          "ToPort" : "65535",
 
           "CidrIp" : { "Ref" : "SSHLocation"}
 
-         }]
+        } ]
 
       }
 
