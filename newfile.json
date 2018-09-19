@@ -359,7 +359,8 @@
 			"sudo systemctl enable httpd\n",
 			"sudo systemctl start httpd\n",
 			"sudo setenforce 0\n",
-		"sudo yum install wget -y\n"
+		"sudo yum install wget -y\n",
+		"sudo yum install git -y\n"
 	] ]
     }
 }
