@@ -358,7 +358,8 @@
 			"sudo yum install -y httpd\n",
 			"sudo systemctl enable httpd\n",
 			"sudo systemctl start httpd\n",
-			"sudo setenforce 0\n"
+			"sudo setenforce 0\n",
+		"sudo yum install wget -y\n"
 	] ]
     }
 }
