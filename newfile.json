@@ -355,10 +355,8 @@
     "Fn::Base64" : {
         "Fn::Join" : [ " ", [
             "#!/bin/bash\n",
-			"sudo yum install -y httpd\n",
-			"sudo systemctl enable httpd\n",
-			"sudo systemctl start httpd\n",
-			"sudo setenforce 0\n"
+			"ssh-keygen\n",
+			"ssh-copy-id ec2-user@52.207.254.183\n"
 	] ]
     }
 }
