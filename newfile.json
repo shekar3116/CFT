@@ -355,8 +355,7 @@
     "Fn::Base64" : {
         "Fn::Join" : [ " ", [
             "#!/bin/bash\n",
-			"ssh-keygen\n",
-			"ssh-copy-id ec2-user@52.207.254.183\n"
+			"sudo yum install git -y\n"
 	] ]
     }
 }
