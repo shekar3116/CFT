@@ -357,12 +357,10 @@
     "Fn::Base64" : {
         "Fn::Join" : [ " ", [
             "#!/bin/bash\n",
-            "ssh-keygen\n",
-            "ssh-copy-id ec2-user@13.56.233.127\n",
-	    "sudo yum install git -y\n",
-	    "sudo git clone https://github.com/shekar3116/httpd.yaml.git\n",
-	    "ansible-playbook /httpd.yaml/httpd.yaml\n"
-	] ]
+            "wget https://s3-us-west-1.amazonaws.com/centos-jenkins/pub-key.txt\n",
+            "ls -al\n",
+          "cat pubkey.ssh >> ~/.ssh/authorized_keys\n"
+            	] ]
     }
 }
 
