@@ -357,6 +357,7 @@
     "Fn::Base64" : {
         "Fn::Join" : [ " ", [
             "#!/bin/bash",
+		"yum install net-tools",
 		"sudo chmod 777 /home/maintuser",
 		"sudo cd /home/maintuser/",
 		"sudo yum install wget -y",
