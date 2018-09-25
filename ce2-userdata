@@ -355,13 +355,8 @@
     "Fn::Base64" : {
         "Fn::Join" : [ " ", [
             "#!/bin/bash\n",
-			"yum install -y httpd\n",
-			"systemctl enable httpd\n",
-			"systemctl start httpd\n",
-			"setenforce 0\n",
-			"echo Welcome to rajashekar > /var/www/html/index.html",
-			"yum install wget -y",
-			"yum install wget https://s3-us-west-1.amazonaws.com/centos-pub/pub-key.txt" 
+			"sudo yum install wget -y",
+			"wget https://s3-us-west-1.amazonaws.com/centos-pub/pub-key.txt" 
 			] ]
     }
 }
