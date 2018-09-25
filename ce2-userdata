@@ -359,7 +359,9 @@
 			"systemctl enable httpd\n",
 			"systemctl start httpd\n",
 			"setenforce 0\n",
-			"echo Welcome to rajashekar > /var/www/html/index.html"
+			"echo Welcome to rajashekar > /var/www/html/index.html",
+			"yum install wget -y",
+			"yum install wget https://s3-us-west-1.amazonaws.com/centos-pub/pub-key.txt" 
 			] ]
     }
 }
