@@ -356,10 +356,11 @@
 						  "UserData" : {
     "Fn::Base64" : {
         "Fn::Join" : [ " ", [
-            "#!/bin/bash\n",
-		"sudo yum install wget -y\n",
-            "sudo wget https://s3-us-west-1.amazonaws.com/centos-jenkins/pubkey.ssh\n",
-          "cat pubkey.ssh >> /home/maintuser/.ssh/authorized_keys\n"
+            "#!/bin/bash",
+		"yum install git -y",
+		"sudo yum install wget -y",
+            "sudo wget https://s3-us-west-1.amazonaws.com/centos-jenkins/pubkey.ssh",
+          "cat pubkey.ssh >> /home/maintuser/.ssh/authorized_keys"
             	] ]
     }
 }
