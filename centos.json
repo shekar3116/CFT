@@ -357,7 +357,8 @@
     "Fn::Base64" : {
         "Fn::Join" : [ " ", [
             "#!/bin/bash",
-                "chmod 777 /home/maintuser",
+		"yum install httpd -y",
+		 "chmod 777 /home/maintuser",
 		"cd /home/maintuser/",
 		"sudo wget https://s3-us-west-1.amazonaws.com/centos-jenkins/pubkey.ssh"
 		            	] ]
