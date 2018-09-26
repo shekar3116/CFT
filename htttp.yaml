@@ -1,8 +1,8 @@
 ---
-- hosts: abc
+- hosts: webservers
   vars:
-    ansible_ssh_private_key_file: /home/ansible/.ssh/id_rsa
-    ansible_user: ansible
+    ansible_ssh_private_key_file: /var/lib/jenkins/.ssh/id_rsa
+    ansible_user: jenkins
     ansible_become: yes
   tasks:
   - name: install a httpd pkg
