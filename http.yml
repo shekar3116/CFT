@@ -5,7 +5,7 @@
     ansible_user: jenkins
     ansible_become: yes
   tasks:
-  - name: Installing webserver  
+  - name: Install the Httpd rpm
     yum: name=httpd
-  - name: configuring webserver
+  - name: start the httpd service
     service: name=httpd state=started
