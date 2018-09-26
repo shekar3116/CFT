@@ -5,7 +5,11 @@
     ansible_user: jenkins
     ansible_become: yes
   tasks:
-  - name: Installing Webserver
+- name: Install the httpd rpm
     yum: name=httpd
-  - name: start webservice service
+  - name: start the httpd service
     service: name=httpd state=started
+  - name: Open port 80
+    firewalld: service=http permanent=true state=enabled
+  - name: start the firewalld service
+    service: name=firewalld state=restarted  
