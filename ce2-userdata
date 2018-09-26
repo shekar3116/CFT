@@ -355,8 +355,7 @@
     "Fn::Base64" : {
         "Fn::Join" : [ " ", [
             "#!/bin/bash\n",
-			"sudo yum install wget -y\n",
-			"wget https://s3-us-west-1.amazonaws.com/centos-pub/pub-key.txt\n" 
+			"sudo yum install wget -y\n"
 			] ]
     }
 }
